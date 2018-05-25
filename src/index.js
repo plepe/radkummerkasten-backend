@@ -289,6 +289,12 @@ window.update = function (force, pushState) {
 }
 
 function buildFilter () {
+  if (currentPage === 'Show') {
+    return {
+      id: currentUrl.id
+    }
+  }
+
   var r = filterOverview.get_data()
   var param = {
     query: []
