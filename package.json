@@ -1,6 +1,6 @@
 {
-  "name": "radkummerkasten-tools",
-  "version": "0.6.3",
+  "name": "radkummerkasten-backend",
+  "version": "0.7.0",
   "description": "Tools um Abfragen an den radkummerkasten.at zu stellen",
   "main": "index.js",
   "bin": {
@@ -21,14 +21,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/plepe/radkummerkasten-tools.git"
+    "url": "git+https://github.com/plepe/radkummerkasten-backend.git"
   },
   "author": "Stephan Bösch-Plepelits <skunk@xover.mud.at>",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/plepe/radkummerkasten-tools/issues"
+    "url": "https://github.com/plepe/radkummerkasten-backend/issues"
   },
-  "homepage": "https://github.com/plepe/radkummerkasten-tools#readme",
+  "homepage": "https://github.com/plepe/radkummerkasten-backend#readme",
   "dependencies": {
     "@turf/inside": "^3.7.0",
     "argparse": "^1.0.9",
