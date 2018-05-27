@@ -52,7 +52,7 @@
         "  <tr><td>",
         "    <map style='width: 314px; height: 314px;' scale='300' options='{\"layer\":\"Basemap\",\"zoom\":17}'></map>",
         "  </td><td>",
-        "    <map style='width: 314px; height: 314px;' scale='300' options='{\"layer\":\"Basemap Orthophoto\",\"zoom\":19}'></map>",
+        "    <map style='width: 314px; height: 314px;' scale='300' options='{\"layer\":\"Basemap Orthophoto\",\"zoom\":20}'></map>",
         "  </td></tr>",
         "{% for comment in entry.comments %}",
         "  {% for attachment in comment.attachments %}",

@@ -38,8 +38,8 @@ function mapLayers (options) {
   layers['Basemap Orthophoto'] = {
         url: protocol + '//{s}.wien.gv.at/basemap/bmaporthofoto30cm/normal/google3857/{z}/{y}/{x}.jpg',
         attribution: '&copy; <a href="http://www.basemap.at/">basemap.at</a>',
-        maxZoom: 19,
-        maxNativeZoom: 19,
+        maxZoom: 20,
+        maxNativeZoom: 20,
         subdomains: [ 'maps', 'maps1', 'maps2', 'maps3', 'maps4' ]
     }
 
