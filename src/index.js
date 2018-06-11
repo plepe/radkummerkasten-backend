@@ -212,6 +212,15 @@ window.onload = function () {
             'type': 'date',
             'name': 'Letzte Änderung bis',
           },
+          'group': {
+            'type': 'select',
+            'name': 'Gruppieren',
+            'values': {
+              'postcode': 'Nach PLZ gruppieren',
+              'survey': 'Nach Kategorie gruppieren',
+              'status': 'Nach Status gruppieren',
+            }
+          },
           'order': {
             'type': 'select',
             'name': 'Sortierung',
@@ -299,7 +308,8 @@ function buildFilter () {
 
   var r = filterOverview.get_data()
   var param = {
-    query: []
+    query: [],
+    order: []
   }
 
   if (r === null) {
@@ -312,14 +322,26 @@ function buildFilter () {
 
   call_hooks('filter-to-param', r, param)
 
+  if ('group' in r) {
+    if (r.group) {
+      param.order.push(r.group)
+    }
+
+    delete r.group
+  }
+
+  if ('order' in r) {
+    if (r.order) {
+      param.order.push(r.order)
+    }
+
+    delete r.order
+  }
+
   for (var k in r) {
     var v = r[k]
 
-    if (k === 'order') {
-      if (r.order) {
-        param.order = [ r.order ]
-      }
-    } else if (r[k] !== null) {
+    if (r[k] !== null) {
       let op = '='
       let m = k.match(/^(.*):(.*)$/)
       if (m) {
@@ -402,11 +424,13 @@ function _update (force, pushState) {
     )
   } else {
     currentPage = 'Overview'
+    let filter = buildFilter()
     pageOverview(
-      buildFilter(),
+      filter,
       {
         viewId: param.view || 'index',
-        scroll: popScrollTop
+        scroll: popScrollTop,
+        group: filterOverview.get_data().group
       },
       (err) => {
         if (err) {
@@ -570,9 +594,21 @@ window.pageOverview = function (filter, options, callback) {
     view.on('showEntry', (ev) => {
       call_hooks('render-entry', ev.dom, ev.entry)
     })
-    view.show(content, {
+    let param = {
       global: twigGlobal
-    }, (err) => {
+    }
+
+    if (options.group) {
+      let formatGroup = {
+        postcode: '{{ entry.postcode }}',
+        survey: "{{ entry.survey|dbApiGet('survey').name }}",
+        status: "{{ entry.survey|dbApiGet('states').name }}"
+      }
+
+      param.group = '<h2>' + formatGroup[options.group] + '</h2>'
+    }
+
+    view.show(content, param, (err) => {
       restoreScroll(options.scroll)
       callback(err)
     })
