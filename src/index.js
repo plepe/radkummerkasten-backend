@@ -245,7 +245,8 @@ window.onload = function () {
         {
           'type': 'form_chooser',
           'button:add_element': 'Filter hinzufügen / Sortierung ändern',
-          'order': false
+          'order': false,
+          'empty_value': {}
         }
       )
 
