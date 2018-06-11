@@ -224,7 +224,7 @@ window.onload = function () {
           'order': {
             'type': 'select',
             'name': 'Sortierung',
-            'default': 'lastCommentDate',
+            'default': '-lastCommentDate',
             'values': {
               '-lastCommentDate': 'Neueste Kommentare bzw. Einträge zuerst',
               '-id': 'Neueste Einträge zuerst',
@@ -318,7 +318,7 @@ function buildFilter () {
   }
 
   if (!('order' in r)) {
-    r.order = 'lastCommentDate'
+    r.order = '-lastCommentDate'
   }
 
   call_hooks('filter-to-param', r, param)
