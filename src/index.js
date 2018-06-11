@@ -383,6 +383,7 @@ function _update (force, pushState) {
   var param = updateUrl(pushState)
 
   if (param.id) {
+    currentPage = 'Show'
     pageShow(
       param.id,
       {
@@ -396,6 +397,7 @@ function _update (force, pushState) {
       }
     )
   } else {
+    currentPage = 'Overview'
     pageOverview(
       buildFilter(),
       {
