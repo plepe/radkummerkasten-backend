@@ -263,8 +263,8 @@ window.onload = function () {
         } else {
           currentUrl = {}
 
-          if (location.hash.match(/^#/)) {
-            currentUrl = querystring.parse(location.hash.substr(1))
+          if (loc.match(/^#/)) {
+            currentUrl = querystring.parse(loc.substr(1))
           }
           updateFormFromUrl(currentUrl)
         }
