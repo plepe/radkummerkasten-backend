@@ -217,11 +217,11 @@ window.onload = function () {
             'name': 'Sortierung',
             'default': 'lastCommentDate',
             'values': {
-              'lastCommentDate': 'Neueste Kommentare bzw. Einträge zuerst',
-              'id': 'Neueste Einträge zuerst',
-              'likes': 'Einträge mit den meisten Unterstützungen zuerst',
-              'commentsCount': 'Einträge mit den meisten Kommentaren zuerst',
-              'lastUpdate': 'Einträge sortiert nach letzter Änderung'
+              '-lastCommentDate': 'Neueste Kommentare bzw. Einträge zuerst',
+              '-id': 'Neueste Einträge zuerst',
+              '-likes': 'Einträge mit den meisten Unterstützungen zuerst',
+              '-commentsCount': 'Einträge mit den meisten Kommentaren zuerst',
+              '-lastUpdate': 'Einträge sortiert nach letzter Änderung'
             }
           }
         }
@@ -314,7 +314,7 @@ function buildFilter () {
     var v = r[k]
 
     if (k === 'order') {
-      param.order = [ '-' + r.order ]
+      param.order = [ r.order ]
     } else if (r[k] !== null) {
       let op = '='
       let m = k.match(/^(.*):(.*)$/)
