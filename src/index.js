@@ -316,7 +316,9 @@ function buildFilter () {
     var v = r[k]
 
     if (k === 'order') {
-      param.order = [ r.order ]
+      if (r.order) {
+        param.order = [ r.order ]
+      }
     } else if (r[k] !== null) {
       let op = '='
       let m = k.match(/^(.*):(.*)$/)
