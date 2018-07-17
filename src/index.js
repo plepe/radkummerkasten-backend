@@ -448,6 +448,8 @@ window.openDownload = function () {
 
   if (!formDownload) {
     getTemplate('downloadOptions', function (err, data) {
+      call_hooks('download-options-form', data)
+
       formDownload = new form('downloadOptions', data)
       formDownload.show(document.getElementById('downloadOptions'))
     })
@@ -464,6 +466,8 @@ window.submitDownloadForm = function () {
   filter.table = 'markers'
 
   var options = formDownload.get_data()
+
+  call_hooks('download-options-filter', filter, options)
 
   getTemplate(options.view, function (err, result) {
     view = api.createView(result, { twig: Twig, split: step, leafletLayers: mapLayers() })

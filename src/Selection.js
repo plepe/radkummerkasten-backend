@@ -49,6 +49,28 @@ class Selection {
         url.selection = this.list.join(',')
       }
     })
+    register_hook('download-options-form', def => {
+      def.select = {
+        "type": "radio",
+        "name": "Exportiere Einträge",
+        "values": {
+            "view": "Derzeit angezeigte Einträge",
+            "selected": "Ausgewählte Einträge"
+        },
+        "default": "view"
+      }
+    })
+    register_hook('download-options-filter', (filter, options) => {
+      if (options.select === 'selected') {
+        for (var k in filter) {
+          if (k !== 'table') {
+            delete filter[k]
+          }
+        }
+        filter.table = 'markers',
+        filter.query = [ [ 'id', 'in', this.list ] ]
+      }
+    })
   }
 
   updateStatus () {
