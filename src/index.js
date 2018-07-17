@@ -450,6 +450,16 @@ window.openDownload = function () {
     getTemplate('downloadOptions', function (err, data) {
       call_hooks('download-options-form', data)
 
+      if (rights && rights.markers && rights.markers.fields && rights.markers.fields.status && rights.markers.fields.status.write) {
+        data.changeStatus = {
+          "type": "select",
+          "name": "Ändere Status",
+          "help": "Status aller exportierten Einträge wird auf gewählten Status geändert.",
+          "placeholder": "-- nicht ändern --",
+          "values": statusValues
+        }
+      }
+
       formDownload = new form('downloadOptions', data)
       formDownload.show(document.getElementById('downloadOptions'))
     })
@@ -487,6 +497,22 @@ window.submitDownloadForm = function () {
         var blob = new Blob([ result ], { type: contentType + ";charset=utf-8" })
         FileSaver.saveAs(blob, 'radkummerkasten.' + extension)
         document.getElementById('downloadForm').style.display = 'none'
+
+        if (options.changeStatus) {
+          let query = JSON.parse(JSON.stringify(filter))
+          query.action = 'update'
+          query.update = {
+            'status': options.changeStatus
+          }
+
+          api.exec([ query ], function (err, result) {
+            update(true)
+
+            if (err) {
+              alert(err)
+            }
+          })
+        }
       }
     )
   })
