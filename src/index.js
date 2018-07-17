@@ -462,6 +462,8 @@ window.openDownload = function () {
 
       formDownload = new form('downloadOptions', data)
       formDownload.show(document.getElementById('downloadOptions'))
+
+      document.getElementById('downloadCancel').onclick = cancelDownload
     })
   } else {
     formDownload.resize()
@@ -469,6 +471,10 @@ window.openDownload = function () {
 }
 
 function createDownload (downloadDom, fileType, data) {
+}
+
+function cancelDownload () {
+  document.getElementById('downloadForm').style.display = 'none'
 }
 
 window.submitDownloadForm = function () {

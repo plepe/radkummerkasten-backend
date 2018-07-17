@@ -53,6 +53,7 @@
   <div id='downloadOptions'>
   </div>
   <input type='submit' value='Generiere Datei' />
+  <input type='button' id='downloadCancel' value='Abbrechen' />
   <span id='download'></span>
 </form>
 
