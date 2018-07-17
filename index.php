@@ -49,10 +49,9 @@
   <li><a href='javascript:update(true, false)'>Neu laden</a></li>
 </ul>
 
-<form id='downloadOptions' onSubmit='return submitDownloadForm()'>
-  <div class='downloadOption'>
+<form id='downloadForm' onSubmit='return submitDownloadForm()'>
+  <div id='downloadOptions'>
   </div>
-Nach Klick auf 'Generiere Datei' wird eine HTML Datei erzeugt, die für den Import in LibreOffice optimiert ist und alle angezeigten Einträge enthält. (Tip: In LibrOffice: Ansicht -&gt; Normal)<br/>
   <input type='submit' value='Generiere Datei' />
   <span id='download'></span>
 </form>

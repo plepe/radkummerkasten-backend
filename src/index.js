@@ -40,6 +40,7 @@ var surveyValues = {}
 var states = {}
 var statusValues = {}
 var view
+var formDownload
 
 var inlineForms = require('./inlineForms')
 
@@ -443,10 +444,16 @@ function _update (force, pushState) {
 }
 
 window.openDownload = function () {
-  var formDownload = document.getElementById('downloadOptions')
-  formDownload.style.display = 'block'
-  //updateDownloadForm()
+  document.getElementById('downloadForm').style.display = 'block'
 
+  if (!formDownload) {
+    getTemplate('downloadOptions', function (err, data) {
+      formDownload = new form('downloadOptions', data)
+      formDownload.show(document.getElementById('downloadOptions'))
+    })
+  } else {
+    formDownload.resize()
+  }
 }
 
 function createDownload (downloadDom, fileType, data) {
@@ -456,7 +463,9 @@ window.submitDownloadForm = function () {
   var filter = buildFilter()
   filter.table = 'markers'
 
-  getTemplate('office', function (err, result) {
+  var options = formDownload.get_data()
+
+  getTemplate(options.view, function (err, result) {
     view = api.createView(result, { twig: Twig, split: step, leafletLayers: mapLayers() })
     view.extend({
       type: 'Leaflet',
@@ -473,7 +482,7 @@ window.submitDownloadForm = function () {
       function (err, result, contentType, extension) {
         var blob = new Blob([ result ], { type: contentType + ";charset=utf-8" })
         FileSaver.saveAs(blob, 'radkummerkasten.' + extension)
-        document.getElementById('downloadOptions').style.display = 'none'
+        document.getElementById('downloadForm').style.display = 'none'
       }
     )
   })
