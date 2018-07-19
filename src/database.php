@@ -16,11 +16,11 @@ function database_markers ($options) {
       ),
       'lat' => array(
         'type' => 'float',
-        'write' => $options['is_admin'],
+        'write' => $options['is_editor'],
       ),
       'lng' => array(
         'type' => 'float',
-        'write' => $options['is_admin'],
+        'write' => $options['is_editor'],
       ),
       'survey' => array(
         'type' => 'int',
@@ -28,15 +28,15 @@ function database_markers ($options) {
       ),
       'street' => array(
         'type' => 'text',
-        'write' => $options['is_admin'],
+        'write' => $options['is_editor'],
       ),
       'housenumber' => array(
         'type' => 'text',
-        'write' => $options['is_admin'],
+        'write' => $options['is_editor'],
       ),
       'postcode' => array(
         'type' => 'int',
-        'write' => $options['is_admin'],
+        'write' => $options['is_editor'],
       ),
       'city' => array(
         'type' => 'text',
@@ -194,7 +194,7 @@ function database_markers ($options) {
       ),
       'address' => array(
         'type' => 'text',
-        'write' => $options['is_admin'],
+        'write' => $options['is_editor'],
       ),
     ),
   );
