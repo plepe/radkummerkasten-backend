@@ -205,14 +205,6 @@ window.onload = function () {
             'type': 'date',
             'name': 'Zuletzt kommentiert bis',
           },
-          'lastUpdate:>=': {
-            'type': 'date',
-            'name': 'Letzte Änderung ab',
-          },
-          'lastUpdate:<=': {
-            'type': 'date',
-            'name': 'Letzte Änderung bis',
-          },
           'group': {
             'type': 'select',
             'name': 'Gruppieren',
@@ -231,7 +223,6 @@ window.onload = function () {
               '-id': 'Neueste Einträge zuerst',
               '-likes': 'Einträge mit den meisten Unterstützungen zuerst',
               '-commentsCount': 'Einträge mit den meisten Kommentaren zuerst',
-              '-lastUpdate': 'Einträge sortiert nach letzter Änderung',
               'postcode': 'Nach PLZ sortieren',
               'survey': 'Nach Kategorie sortieren'
             }

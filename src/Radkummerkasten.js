@@ -145,15 +145,13 @@ Radkummerkasten.setConfig = function (options) {
  * @param {string} options.user - Only include entries, which were created by the specified user or by whom has been commented upon.
  * @param {string} dateStart - filter by date. Include all entries which were created at or after dateStart. Expected format: ISO8601 date (e.g. 2017-03-21).
  * @param {string} dateEnd - filter by date. Include all entries which were created before or at dateEnd. Expected format: ISO8601 date (e.g. 2017-03-21).
- * @param {string} lastUpdateStart - filter by lastUpdate. Include all entries which were updated at or after lastUpdateStart. Expected format: ISO8601 datetime (e.g. 2017-03-21 or 2017-03-21T20:00:00Z).
- * @param {string} lastUpdateEnd - filter by lastUpdate. Include all entries which were updated before or at lastUpdateEnd. Expected format: ISO8601 datetime (e.g. 2017-03-21 or 2017-03-21T20:00:00Z).
  * @param {string} lastCommentDateStart - filter by lastCommentDate. Include all entries which were created or commented at or after lastCommentDateStart. Expected format: ISO8601 date (e.g. 2017-03-21).
  * @param {string} lastCommentDateEnd - filter by lastCommentDate. Include all entries which where created or commented before or at lastCommentDateEnd. Expected format: ISO8601 date (e.g. 2017-03-21).
  * @param {number} options.limit - Only return the first n entries (after offset) (default: all)
  * @param {number} options.offset - Skip the first n entries (default: 0)
  * @param {boolean} options.force=false - Force reload of list
  * @param {boolean} options.forceDetails=false - If a result already exists in cache, force reload anyway
- * @param {string} [options.order=id] - Order results by one of the following criteria: 'id': newest entries first, 'likes': most likes first, 'lastComment': order by date of last comment (or creation of entry), 'lastUpdate': order by date of last visible change, 'commentsCount': most commented entries first.
+ * @param {string} [options.order=id] - Order results by one of the following criteria: 'id': newest entries first, 'likes': most likes first, 'lastComment': order by date of last comment (or creation of entry), 'commentsCount': most commented entries first.
  * @param {Radkummerkasten~featureCallback} featureCallback - The featureCallback function will be called for each received entry.
  * @param {Radkummerkasten~finalCallback} [finalCallback] - The finalCallback will be called after the last entry.
  */
@@ -413,7 +411,6 @@ Radkummerkasten.clearCache = function () {
  * @property {number} commentsCount - Count of comments (load details first)
  * @property {RadkummerkastenEntry.attachment[]} attachments - Attachments (load details first)
  * @property {number} attachmentsCount - Count of attachments (load details first)
- * @property {string} lastUpdate - The entry in the current state was first seen at: ISO-8601 date.
  * @property {string[]} errors - List of errors which occured during loading
  */
 function RadkummerkastenEntry (data) {
