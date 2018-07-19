@@ -262,6 +262,9 @@ register_hook('init', function () {
       'name' => array(
         'type' => 'text',
       ),
+      'showDefault' => array(
+         'type' => 'boolean',
+      ),
     ),
   );
 

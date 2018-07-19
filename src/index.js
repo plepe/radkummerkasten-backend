@@ -29,7 +29,7 @@ var preferredLayer = null
 var entryOptions = {}
 var currentPage = 'Overview'
 var currentUrl = {}
-var filterOverview = null
+global.filterOverview = null
 window.knownEntries = {}
 const step = 20
 
@@ -39,7 +39,7 @@ var surveys = {}
 var surveyValues = {}
 var states = {}
 var statusValues = {}
-var statusDefault = [ '1', '2' ] // TODO: read this from database
+var statusDefault = []
 var view
 var formDownload
 
@@ -152,7 +152,9 @@ window.onload = function () {
         result.forEach(function (state) {
           states[state.id] = state
           statusValues[state.id] = state.name
-          //statusDefault.push(state.id)
+          if (state.showDefault) {
+            statusDefault.push(state.id + '')
+          }
         })
 
         callback()
