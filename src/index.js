@@ -39,6 +39,7 @@ var surveys = {}
 var surveyValues = {}
 var states = {}
 var statusValues = {}
+var statusDefault = [ '1', '2' ] // TODO: read this from database
 var view
 var formDownload
 
@@ -151,6 +152,7 @@ window.onload = function () {
         result.forEach(function (state) {
           states[state.id] = state
           statusValues[state.id] = state.name
+          //statusDefault.push(state.id)
         })
 
         callback()
@@ -175,10 +177,11 @@ window.onload = function () {
             'name': 'Postcode',
             'values': postcodeValues
           },
-          'status': {
-            'type': 'select',
+          'status:in': {
+            'type': 'checkbox',
             'name': 'Status',
-            'values': statusValues
+            'values': statusValues,
+            'default': statusDefault
           },
           'survey': {
             'type': 'select',
@@ -299,7 +302,7 @@ function buildFilter () {
     }
   }
 
-  var r = filterOverview.get_data()
+  var r = JSON.parse(JSON.stringify(filterOverview.get_data()))
   var param = {
     query: [],
     order: []
@@ -309,8 +312,14 @@ function buildFilter () {
     r = {}
   }
 
-  if (!('order' in r)) {
-    r.order = '-lastCommentDate'
+  for (var k in filterOverview.def) {
+    if (!(k in r)) {
+      let def = filterOverview.def[k]
+
+      if ('default' in def) {
+        r[k] = def.default
+      }
+    }
   }
 
   call_hooks('filter-to-param', r, param)
