@@ -6,7 +6,7 @@ function getTemplate (id, callback) {
     return callback(null, templates[id])
   }
 
-  httpGetJSON('GET', 'templates/' + id + '.json', null, function (error, result) {
+  httpGetJSON('GET', 'templates/' + id + '.json?__GIT_MY_VERSION__', null, function (error, result) {
       if (error) {
         return callback(error, null)
       }
