@@ -2,11 +2,11 @@
     "view": {
         "type": "select",
         "name": "Template",
-        "default": "office",
+        "default": "dossier",
         "values": {
             "index": "Standard (Letztes Kommentar, ein Bild)",
             "index-map": "Mit Karte (Letztes Kommentar, alle Bilder)",
-            "office": {
+            "dossier": {
                 "name": "Dossier (optimiert für den Import in LibreOffice)",
                 "desc": "Tip: In LibreOffice: Ansicht -> Normal"
             },
