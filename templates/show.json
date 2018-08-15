@@ -10,7 +10,7 @@
         "{% for comment in entry.comments %}",
         "  {% for attachment in comment.attachments %}",
         "    <div class='image'>",
-        "      <img class='attachment' src=\"{{ global.attachmentBaseUrl}}/{{ attachment.file }}\">",
+        "      <a target='_blank' href=\"{{ global.attachmentBaseUrl}}/2048/{{ attachment.file }}\"><img class='attachment' src=\"{{ global.attachmentBaseUrl}}/m/{{ attachment.file }}\"></a>",
         "      Bereitgestellt von {{ comment.firstname }} {{ comment.lastname }} am {{ comment.date }}",
         "    </div>",
         "  {% endfor %}",

@@ -61,7 +61,7 @@
         "    {% endif %}",
         "{% set col=col+1 %}",
         "        <td width=\"50%\">",
-        "        <img class='attachment' src=\"{{ global.attachmentBaseUrl}}/{{ attachment.file }}\" max-width=\"314\" max-height=\"314\" /><br/>",
+        "        <a target='_blank' href=\"{{ global.attachmentBaseUrl}}/2048/{{ attachment.file }}\"><img class='attachment' src=\"{{ global.attachmentBaseUrl}}/m/{{ attachment.file }}\" max-width=\"314\" max-height=\"314\" /></a><br/>",
         "        Bereitgestellt von {{ comment.firstname }} {{ comment.lastname }} am {{ comment.date }}",
         "        </td>",
         "    {% if col == 2 %}",

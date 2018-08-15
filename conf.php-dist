@@ -8,7 +8,7 @@ $dbconf = array(
 
 $twigGlobal = array(
   'urlBezirksgrenzen' => 'https://www.radkummerkasten.at/wp-content/plugins/radkummerkasten/js/data.wien.gv.at_bezirksgrenzen.json',
-  'attachmentBaseUrl' => 'https://www.radkummerkasten.at/images/uploads/comments/2048',
+  'attachmentBaseUrl' => 'https://www.radkummerkasten.at/images/uploads/comments',
   'baseUrl' => 'http://www.radkummerkasten.at',
 );
 

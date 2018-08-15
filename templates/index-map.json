@@ -26,7 +26,7 @@
         "<div class='attachments'>",
         "{% for comment in entry.comments %}",
         "  {% for attachment in comment.attachments %}",
-        "    <img src=\"{{ global.attachmentBaseUrl}}/{{ attachment.file }}\">",
+        "    <img src=\"{{ global.attachmentBaseUrl}}/m/{{ attachment.file }}\">",
         "  {% endfor %}",
         "{% endfor %}",
         "</div>",

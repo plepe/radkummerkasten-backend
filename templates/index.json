@@ -5,7 +5,7 @@
         "{% set attachmentDone = false %}",
         "{% for comment in entry.comments if attachmentDone == false %}",
         "  {% if comment.attachments|length > 0 %}",
-        "    <img class='attachment' src=\"{{ global.attachmentBaseUrl}}/{{ comment.attachments[0].file }}\">",
+        "    <img class='attachment' src=\"{{ global.attachmentBaseUrl}}/m/{{ comment.attachments[0].file }}\">",
         "    {% set attachmentDone = true %}",
         "  {% endif %}",
         "{% endfor %}",
