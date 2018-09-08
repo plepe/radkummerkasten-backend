@@ -496,10 +496,14 @@ window.submitDownloadForm = function () {
       layers: mapLayers()
     })
 
+    let globalData = JSON.parse(JSON.stringify(twigGlobal))
+    globalData.filter = filterOverview.get_data()
+    globalData.filterDef = filterOverview.def
+
     view.set_query(filter)
     view.export(
       {
-        global: twigGlobal
+        global: globalData
       },
       function (err, result, contentType, extension) {
         var blob = new Blob([ result ], { type: contentType + ";charset=utf-8" })
