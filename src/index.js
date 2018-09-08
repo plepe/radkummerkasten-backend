@@ -497,8 +497,11 @@ window.submitDownloadForm = function () {
     })
 
     let globalData = JSON.parse(JSON.stringify(twigGlobal))
-    globalData.filter = filterOverview.get_data()
-    globalData.filterDef = filterOverview.def
+
+    if (currentPage === 'Overview' && (!options.select || options.select !== 'selected')) {
+      globalData.filter = filterOverview.get_data()
+      globalData.filterDef = filterOverview.def
+    }
 
     view.set_query(filter)
     view.export(
