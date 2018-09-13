@@ -1,7 +1,7 @@
 <?php
 $id = "radkummerkasten-tools";
 $name = "radkummerkasten-tools";
-$depend = array("modulekit-form", "PDOext", "modulekit-auth", "auth-user-menu", "modulekit-auth-js", "modulekit-ajax", "db-api");
+$depend = array("modulekit-form", "PDOext", "modulekit-auth", "auth-user-menu", "modulekit-auth-js", "modulekit-ajax", "db-api", "json_readable_encode");
 $include = array(
   'php' => array(
     'src/database.php',

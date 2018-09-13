@@ -59,6 +59,11 @@ function database_markers ($options) {
         'id' => 'map_comments',
         'parent_field' => 'marker',
         'delete' => $options['is_admin'],
+        'on' => array(
+          'create' => function ($v) {
+            file_put_contents('/tmp/foo.json', json_readable_encode($v));
+          },
+        ),
         'fields' => array(
           'id' => array(
             'type' => 'int',
