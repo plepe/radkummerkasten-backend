@@ -11,7 +11,8 @@
                 "desc": "Tip: In LibreOffice: Ansicht -> Normal"
             },
             "show": "Einzelansicht",
-            "csv": "CSV Export"
+            "csv": "CSV Export",
+            "json": "JSON Export"
         }
     }
 }
