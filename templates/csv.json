@@ -15,6 +15,9 @@
         "date",
         "address",
         "commentsCount",
-        "lastCommentDate"
+        "lastCommentDate",
+        "comments/0/firstname",
+        "comments/0/lastname",
+        "comments/0/message"
     ]
 }
