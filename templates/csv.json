@@ -1,0 +1,20 @@
+{
+    "type": "CSV",
+    "columns": [
+        "id",
+        "lat",
+        "lng",
+        "survey",
+        "status",
+        "likes",
+        "street",
+        "housenumber",
+        "postcode",
+        "postcodeCoordinate",
+        "city",
+        "date",
+        "address",
+        "commentsCount",
+        "lastCommentDate"
+    ]
+}
