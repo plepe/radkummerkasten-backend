@@ -54,7 +54,7 @@ class Selection {
         "type": "radio",
         "name": "Exportiere Einträge",
         "values": {
-            "view": "Derzeit angezeigte Einträge",
+            "view": "Alle nach aktuellem Filter",
             "selected": "Ausgewählte Einträge"
         },
         "default": "view"
