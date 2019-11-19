@@ -10,7 +10,8 @@
                 "name": "Dossier (optimiert für den Import in LibreOffice)",
                 "desc": "Tip: In LibreOffice: Ansicht -> Normal"
             },
-            "show": "Einzelansicht"
+            "show": "Einzelansicht",
+            "csv": "CSV Export"
         }
     }
 }
