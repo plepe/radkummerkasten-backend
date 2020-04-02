@@ -197,7 +197,11 @@ function database_markers ($options) {
         'write' => $options['is_editor'],
       ),
     ),
+    'additional_filters' => array(
+    ),
   );
+
+  call_hooks('database-markers', $table_markers, $options);
 
   return $table_markers;
 }

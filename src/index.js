@@ -250,6 +250,9 @@ window.onload = function () {
       filterOverview.show(document.getElementById('filterOverview'))
       filterOverview.onchange = function () {
         currentUrl = filterOverview.get_data()
+
+        call_hooks('filter-onchange', currentUrl)
+
         return update(false, true)
       }
 
