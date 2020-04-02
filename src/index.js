@@ -5,6 +5,7 @@ var createHTML = require('../src/createHTML')
 var getTemplate = require('../src/getTemplate')
 var Selection = require('./Selection')
 var mapLayers = require('./mapLayers')
+var commentedBetween = require('./commentedBetween')
 
 var csvWriter = require('csv-write-stream')
 var concat = require('concat-stream')
@@ -63,6 +64,7 @@ window.onload = function () {
 
   // initalize modules
   new Selection()
+  commentedBetween.init()
 
   window.addEventListener('popstate', function (event) {
     if (event.state && 'scrollTop' in event.state) {
